@@ -30,6 +30,20 @@ guide will follow in a separate, qualified release step. Live deployments
 must not depend on this repository being reachable to forward wireless
 client traffic.
 
+## Public Root CA scope
+
+The public [`root-ca.pem`](root-ca.pem) is the **Dell lab's Smallstep
+Root CA certificate only**. Its X.509 DER SHA-256 fingerprint is:
+
+`af06df479673e99ac3bc4b3779f3cb506dbe7b5745eb6898cd0fa50cb35c59d6`
+
+This certificate is safe to distribute, but it is **not** a generic
+organization-wide identity for unrelated WLAN Fabric deployments. A fresh
+Hetzner or self-hosted controller with a different CA needs its own
+explicitly verified trust anchor and appropriately packaged agent release.
+Never copy this CA's private key or assume the same trust relationship
+exists automatically at a new site.
+
 ## Security boundaries
 
 This repository must contain **only public distributable artifacts and
